@@ -66,10 +66,10 @@ void CopyPasteManager::CopyToClipboard(String ^ stringToCopy)
 {
     // Copy the string to the clipboard
     auto dataPackage = ref new DataPackage();
-    dataPackage->SetText(stringToCopy);
+    //dataPackage->SetText(stringToCopy);
+    dataPackge->SetText(RemoveUnwantedCharsFromString(stringToCopy));
     Clipboard::SetContent(dataPackage);
-}
-
+} 
 IAsyncOperation<String ^> ^ CopyPasteManager::GetStringToPaste(ViewMode mode, CategoryGroupType modeType, NumberBase programmerNumberBase, BitLength bitLengthType)
 {
     // Retrieve the text in the clipboard
